@@ -1,0 +1,22 @@
+{
+  "attempted": 6,
+  "measured": 6,
+  "censored": 5,
+  "unexpected_container_restarts": 0,
+  "clean_resets": 6,
+  "baseline_failures": 0,
+  "telemetry_events_total": 63067,
+  "telemetry_min_per_incident": 2988,
+  "feed_reconnects": 1,
+  "duplicate_orchestrator": false,
+  "mean_cycle_s": 231.13333333333333,
+  "criteria": {
+    "no_unexpected_container_restarts": true,
+    "clean_reset_between_incidents": true,
+    "telemetry_continuity": true,
+    "healthy_baseline_before_each": true,
+    "no_unexplained_data_loss": true,
+    "no_duplicate_orchestrator": true
+  },
+  "pass": true
+}

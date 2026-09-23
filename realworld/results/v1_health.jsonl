@@ -1,0 +1,13 @@
+{"t": 1787526650000, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787529073669, "pods": 12, "container_restarts": 6, "not_ready": 1}
+{"t": 1787529979788, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787530313292, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787530521986, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787530877028, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787531207732, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787531447060, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787531636969, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787531798681, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787531854068, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787532065534, "pods": 12, "container_restarts": 1, "not_ready": 0}
+{"t": 1787532322841, "pods": 12, "container_restarts": 1, "not_ready": 0}

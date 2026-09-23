@@ -1,0 +1,817 @@
+{
+  "admitted_cells": [
+    [
+      "deploy_misconfig",
+      "currencyservice"
+    ],
+    [
+      "deploy_misconfig",
+      "productcatalogservice"
+    ],
+    [
+      "deploy_misconfig",
+      "recommendationservice"
+    ],
+    [
+      "deploy_misconfig",
+      "shippingservice"
+    ],
+    [
+      "resource_exhaustion",
+      "cartservice"
+    ],
+    [
+      "resource_exhaustion",
+      "currencyservice"
+    ],
+    [
+      "resource_exhaustion",
+      "recommendationservice"
+    ],
+    [
+      "service_crash",
+      "cartservice"
+    ],
+    [
+      "service_crash",
+      "currencyservice"
+    ],
+    [
+      "service_crash",
+      "productcatalogservice"
+    ],
+    [
+      "service_crash",
+      "recommendationservice"
+    ],
+    [
+      "service_crash",
+      "redis-cart"
+    ],
+    [
+      "service_crash",
+      "shippingservice"
+    ]
+  ],
+  "services_by_fault": {
+    "deploy_misconfig": [
+      "currencyservice",
+      "productcatalogservice",
+      "recommendationservice",
+      "shippingservice"
+    ],
+    "resource_exhaustion": [
+      "cartservice",
+      "currencyservice",
+      "recommendationservice"
+    ],
+    "service_crash": [
+      "cartservice",
+      "currencyservice",
+      "productcatalogservice",
+      "recommendationservice",
+      "redis-cart",
+      "shippingservice"
+    ]
+  },
+  "heldout_cell_counts": {
+    "service_crash|pod_restart": 4,
+    "service_crash|scale_replicas": 4,
+    "service_crash|rollback_deploy": 4,
+    "deploy_misconfig|pod_restart": 3,
+    "deploy_misconfig|scale_replicas": 3,
+    "deploy_misconfig|rollback_deploy": 3,
+    "resource_exhaustion|pod_restart": 3,
+    "resource_exhaustion|scale_replicas": 3,
+    "resource_exhaustion|rollback_deploy": 3
+  },
+  "heldout_plan": [
+    {
+      "id": "h001",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h002",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h003",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "productcatalogservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h004",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h005",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h006",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h007",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "productcatalogservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h008",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h009",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h010",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h011",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h012",
+      "phase": "heldout",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h013",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h014",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h015",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h016",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "currencyservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h017",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h018",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "recommendationservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h019",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "currencyservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h020",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h021",
+      "phase": "heldout",
+      "fault": "deploy_misconfig",
+      "origin": "recommendationservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h022",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h023",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h024",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "h025",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h026",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "currencyservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h027",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "h028",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h029",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "currencyservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "h030",
+      "phase": "heldout",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    }
+  ],
+  "corpus_plan": [
+    {
+      "id": "c001",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 90
+    },
+    {
+      "id": "c002",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c003",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c004",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "shippingservice",
+      "action": "pod_restart",
+      "tau": 15
+    },
+    {
+      "id": "c005",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 15
+    },
+    {
+      "id": "c006",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c007",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "shippingservice",
+      "action": "pod_restart",
+      "tau": 15
+    },
+    {
+      "id": "c008",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c009",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "scale_replicas",
+      "tau": 15
+    },
+    {
+      "id": "c010",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 90
+    },
+    {
+      "id": "c011",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "shippingservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c012",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c013",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c014",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c015",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "redis-cart",
+      "action": "rollback_deploy",
+      "tau": 90
+    },
+    {
+      "id": "c016",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c017",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "shippingservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c018",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c019",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "scale_replicas",
+      "tau": 90
+    },
+    {
+      "id": "c020",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c021",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "recommendationservice",
+      "action": "scale_replicas",
+      "tau": 15
+    },
+    {
+      "id": "c022",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c023",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "shippingservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c024",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "currencyservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c025",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c026",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c027",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "c028",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "redis-cart",
+      "action": "scale_replicas",
+      "tau": 15
+    },
+    {
+      "id": "c029",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "redis-cart",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c030",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "c031",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c032",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "productcatalogservice",
+      "action": "pod_restart",
+      "tau": 15
+    },
+    {
+      "id": "c033",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "currencyservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c034",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "redis-cart",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c035",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "recommendationservice",
+      "action": "rollback_deploy",
+      "tau": 90
+    },
+    {
+      "id": "c036",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c037",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "shippingservice",
+      "action": "scale_replicas",
+      "tau": 90
+    },
+    {
+      "id": "c038",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "shippingservice",
+      "action": "scale_replicas",
+      "tau": 90
+    },
+    {
+      "id": "c039",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "scale_replicas",
+      "tau": 15
+    },
+    {
+      "id": "c040",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 15
+    },
+    {
+      "id": "c041",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "c042",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "c043",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "shippingservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c044",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c045",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "shippingservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c046",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 90
+    },
+    {
+      "id": "c047",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "redis-cart",
+      "action": "pod_restart",
+      "tau": 45
+    },
+    {
+      "id": "c048",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "recommendationservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c049",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "scale_replicas",
+      "tau": 15
+    },
+    {
+      "id": "c050",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "shippingservice",
+      "action": "scale_replicas",
+      "tau": 15
+    },
+    {
+      "id": "c051",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "redis-cart",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c052",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "recommendationservice",
+      "action": "scale_replicas",
+      "tau": 90
+    },
+    {
+      "id": "c053",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c054",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "rollback_deploy",
+      "tau": 15
+    },
+    {
+      "id": "c055",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "cartservice",
+      "action": "pod_restart",
+      "tau": 15
+    },
+    {
+      "id": "c056",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c057",
+      "phase": "corpus",
+      "fault": "service_crash",
+      "origin": "currencyservice",
+      "action": "pod_restart",
+      "tau": 90
+    },
+    {
+      "id": "c058",
+      "phase": "corpus",
+      "fault": "resource_exhaustion",
+      "origin": "cartservice",
+      "action": "rollback_deploy",
+      "tau": 45
+    },
+    {
+      "id": "c059",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "shippingservice",
+      "action": "scale_replicas",
+      "tau": 45
+    },
+    {
+      "id": "c060",
+      "phase": "corpus",
+      "fault": "deploy_misconfig",
+      "origin": "productcatalogservice",
+      "action": "scale_replicas",
+      "tau": 45
+    }
+  ],
+  "heldout_tau_s": 45,
+  "censor_window_s": 90,
+  "master_seed": 20260824,
+  "n_corpus": 60,
+  "n_heldout": 30
+}

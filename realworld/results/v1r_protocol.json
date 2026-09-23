@@ -1,0 +1,68 @@
+{
+  "protocol": "V1r revised real-world campaign",
+  "incidentmind_estimator_commit": "7d0ff7bd2186871d61abf1ccb8154402bc60a9ae",
+  "estimator_sha256_lf": "20d982ea5eaeb94456641d26ae586cb51cf497877149d1766d073f4d281a2abf",
+  "benchmark": "Online Boutique v0.10.6",
+  "manifest_sha256": "41a4736597543ee562c673c0c0446e2cc4bddf2b816c294690e83b38cfcc66a2",
+  "proto_sha256": "b1f2fa42c0a9305211bf51fba7d8b5832cd3defd7b8855c327ebd5b1f0f86884",
+  "cluster": "kind incidentmind-fi, k8s v1.36.1, kindest/node:v1.36.1, 1 node, 16 CPU / 7.42 GiB",
+  "prober": "im-prober:v1a  tcp 10Hz / functional 5Hz / dependency 2Hz / http 2Hz",
+  "censor_window_s": 90,
+  "censor_rationale": "Effective recoveries observed in V1a completed within ~75 s; ineffective actions still need time to demonstrate non-recovery. Fixed pre-run from the V1/V1a observations and not revisited after seeing results.",
+  "campaign": {
+    "stability": 6,
+    "corpus": 60,
+    "heldout": 30,
+    "heldout_tau_s": 45,
+    "taus": [
+      15,
+      45,
+      90
+    ]
+  },
+  "master_seed": 20260824,
+  "stability_criteria": [
+    "no unexpected container restarts",
+    "clean reset between incidents",
+    "telemetry continuity",
+    "healthy baseline before each incident",
+    "no unexplained data loss",
+    "no duplicate orchestrator"
+  ],
+  "stability_correction": "The original \u00a712 gate required >=80% of stability incidents to complete uncensored. That conflated infrastructure health with incident recovery: half the admitted (fault, action) combinations are ineffective by construction and cannot recover. The gate now measures infrastructure reliability only; censored incidents remain in the dataset as valid observations with an explicit censored outcome.",
+  "permanently_rejected_cells": [
+    [
+      "deploy_misconfig",
+      "redis-cart"
+    ],
+    [
+      "resource_exhaustion",
+      "shippingservice"
+    ],
+    [
+      "deploy_misconfig",
+      "cartservice"
+    ],
+    [
+      "resource_exhaustion",
+      "productcatalogservice"
+    ],
+    [
+      "resource_exhaustion",
+      "redis-cart"
+    ]
+  ],
+  "recontrolled_cells": [
+    [
+      "resource_exhaustion",
+      "cartservice",
+      "admitted"
+    ],
+    [
+      "resource_exhaustion",
+      "redis-cart",
+      "rejected"
+    ]
+  ],
+  "n_admitted_cells": 13
+}

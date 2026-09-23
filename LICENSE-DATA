@@ -1,0 +1,24 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 Rahil Ahmed, Sogra Sana, P. Sowjanya
+
+The original data, results and figures in this repository are licensed under the
+Creative Commons Attribution 4.0 International License. You are free to share and
+adapt the material for any purpose, provided you give appropriate credit, provide
+a link to the licence, and indicate if changes were made.
+
+Full licence text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:           https://creativecommons.org/licenses/by/4.0/
+
+This covers, in particular:
+  evaluation/results/**      generated evaluation results and run transcripts
+  realworld/results/**       measurements from our own Kubernetes fault-injection
+                             campaign, including the probe-event stream
+  figures/Fig*.png           the figures as published
+  system/datasets/**,        synthetic demonstration corpora
+  system/incidentmind-data/**
+
+Attribution should cite the journal article (see CITATION.cff).
+
+Third-party files (see THIRD_PARTY.md) are NOT covered by this licence and
+retain the licence of their original authors.

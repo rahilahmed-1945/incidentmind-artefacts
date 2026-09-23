@@ -1,0 +1,86 @@
+[19:16:29] waiting for probe stream ...
+[19:16:30] === phase 1: fault-persistence controls ===
+[19:16:30] CONTROL service_crash @ productcatalogservice  (no recovery action, observe 100s)
+[19:18:18]   -> PERSISTENT
+[19:19:01] CONTROL service_crash @ redis-cart  (no recovery action, observe 100s)
+[19:20:50]   -> PERSISTENT
+[19:21:09] CONTROL deploy_misconfig @ productcatalogservice  (no recovery action, observe 100s)
+[19:22:58]   -> PERSISTENT
+[19:23:37] CONTROL deploy_misconfig @ shippingservice  (no recovery action, observe 100s)
+[19:25:26]   -> PERSISTENT
+[19:26:07] CONTROL deploy_misconfig @ currencyservice  (no recovery action, observe 100s)
+[19:27:56]   -> PERSISTENT
+[19:28:38] CONTROL deploy_misconfig @ recommendationservice  (no recovery action, observe 100s)
+[19:30:27]   -> PERSISTENT
+[19:30:50] CONTROL resource_exhaustion @ productcatalogservice  (no recovery action, observe 100s)
+[19:32:40]   -> SELF_HEALED
+[19:32:54] CONTROL resource_exhaustion @ recommendationservice  (no recovery action, observe 100s)
+[19:34:43]   -> PERSISTENT
+[19:35:13] === phase 2: injections ===
+[19:35:13] p01  service_crash @ productcatalogservice  action=pod_restart  tau=15s
+[19:35:22]   onset +476 ms after injection
+[19:35:53]   dur 23.3s  blast=2  affected=productcatalogservice,recommendationservice
+[19:35:53]   propagation (ms after origin): {'recommendationservice': 813}
+[19:36:05]   cycle 52s
+[19:36:05] p02  service_crash @ currencyservice  action=pod_restart  tau=30s
+[19:36:19]   onset +5596 ms after injection
+[19:37:36]   dur 69.3s  blast=2  affected=checkoutservice,currencyservice
+[19:37:36]   propagation (ms after origin): {'checkoutservice': 4206}
+[19:37:48]   cycle 103s
+[19:37:48] p03  service_crash @ cartservice  action=scale_replicas  tau=20s
+[19:37:57]   onset +571 ms after injection
+[19:39:15]   dur 70.0s  blast=2  affected=cartservice,checkoutservice
+[19:39:15]   propagation (ms after origin): {'checkoutservice': 517}
+[19:39:29]   cycle 101s
+[19:39:29] p04  service_crash @ redis-cart  action=pod_restart  tau=20s
+[19:39:38]   onset +613 ms after injection
+[19:40:09]   dur 23.4s  blast=3  affected=cartservice,checkoutservice,redis-cart
+[19:40:09]   propagation (ms after origin): {'cartservice': 5637, 'checkoutservice': 7645}
+[19:40:21]   cycle 52s
+[19:40:21] p05  service_crash @ shippingservice  action=pod_restart  tau=25s
+[19:40:29]   onset +455 ms after injection
+[19:41:20]   dur 43.2s  blast=2  affected=checkoutservice,shippingservice
+[19:41:20]   propagation (ms after origin): {'checkoutservice': 4281}
+[19:41:32]   cycle 72s
+[19:41:32] p06  service_crash @ paymentservice  action=pod_restart  tau=15s
+[19:41:46]   onset +5612 ms after injection
+[19:42:38]   dur 44.1s  blast=2  affected=checkoutservice,paymentservice
+[19:42:38]   propagation (ms after origin): {'checkoutservice': 900}
+[19:42:51]   cycle 78s
+[19:42:51] p07  deploy_misconfig @ productcatalogservice  action=rollback_deploy  tau=20s
+[19:43:00]   onset +1043 ms after injection
+[19:43:34]   dur 26.0s  blast=2  affected=productcatalogservice,recommendationservice
+[19:43:34]   propagation (ms after origin): {'recommendationservice': 4111}
+[19:43:46]   cycle 55s
+[19:43:46] p08  deploy_misconfig @ shippingservice  action=rollback_deploy  tau=15s
+[19:43:55]   onset +892 ms after injection
+[19:44:24]   dur 21.5s  blast=2  affected=checkoutservice,shippingservice
+[19:44:24]   propagation (ms after origin): {'checkoutservice': 4176}
+[19:44:37]   cycle 51s
+[19:44:37] p09  deploy_misconfig @ currencyservice  action=rollback_deploy  tau=25s
+[19:44:51]   onset +5921 ms after injection
+[19:46:10]   dur 71.3s  blast=3  affected=checkoutservice,currencyservice,productcatalogservice
+[19:46:10]   propagation (ms after origin): {'checkoutservice': 531, 'productcatalogservice': 6605}
+[19:46:22]   cycle 106s
+[19:46:22] p10  resource_exhaustion @ productcatalogservice  action=rollback_deploy  tau=20s
+[19:46:32]   onset +901 ms after injection
+[19:47:20]   dur 41.1s  blast=2  affected=productcatalogservice,recommendationservice
+[19:47:20]   propagation (ms after origin): {'recommendationservice': 416}
+[19:47:33]   cycle 70s
+[19:47:33] p11  resource_exhaustion @ recommendationservice  action=rollback_deploy  tau=25s
+[19:47:47]   onset +5881 ms after injection
+[19:48:37]   dur 41.8s  blast=1  affected=recommendationservice
+[19:48:49]   cycle 76s
+[19:48:49] p12  service_crash @ adservice  action=pod_restart  tau=15s
+[19:48:58]   onset +690 ms after injection
+[19:49:55]   dur 49.2s  blast=1  affected=adservice
+[19:50:07]   cycle 78s
+[19:50:07] p13  service_crash @ emailservice  action=pod_restart  tau=20s
+[19:50:21]   onset +5646 ms after injection
+[19:51:33]   dur 64.2s  blast=1  affected=emailservice
+[19:51:45]   cycle 98s
+[19:51:45] p14  deploy_misconfig @ recommendationservice  action=rollback_deploy  tau=20s
+[19:52:00]   onset +5944 ms after injection
+[19:52:49]   dur 42.1s  blast=1  affected=recommendationservice
+[19:53:02]   cycle 77s
+[19:53:02] V1a complete in 37 min

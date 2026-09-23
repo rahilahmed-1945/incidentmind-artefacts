@@ -1,0 +1,10 @@
+{
+  "n": 10,
+  "ok": 3,
+  "container_restarts_delta": 0,
+  "feed_reconnects": 1,
+  "resets_ok": 10,
+  "mean_cycle_s": 233.64000000000001,
+  "mean_probe_events": 14058.6,
+  "pass": false
+}

@@ -1,0 +1,49 @@
+A (frozen original)   novelty_aware = False
+B (novelty-aware)      {'nov_kappa0': 1.0, 'nov_a': 2.0, 'nov_gamma_c': 0.6, 'nov_gamma_i': 1.0}
+evaluation seeds (untouched): [50101, 50202, 50303, 50404, 50505] 
+
+building memories from train (seed 101) ...
+  seed 50101 done (100s elapsed)
+  seed 50202 done (196s elapsed)
+  seed 50303 done (290s elapsed)
+  seed 50404 done (384s elapsed)
+  seed 50505 done (484s elapsed)
+
+condition        metric               A         B     delta        p
+--------------------------------------------------------------------
+seen             dur_mae         2.3727    2.3781   +0.0054    0.062
+                 blast_mae       1.1462    1.1462   +0.0000    1.000
+                 coverage        0.8456    0.8460   +0.0003    0.125
+                 top1            0.7453    0.7460   +0.0007    0.750
+                 regret          0.1589    0.1580   -0.0009    0.375
+
+sparse           dur_mae         3.9162    3.8333   -0.0828    0.062
+                 blast_mae       1.3841    1.3841   +0.0000    1.000
+                 coverage        0.3865    0.4221   +0.0357    0.062
+                 top1            0.7003    0.6933   -0.0070    0.125
+                 regret          0.3505    0.3165   -0.0341    0.312
+
+unseen_fault     dur_mae         6.5386    6.6095   +0.0709    0.062
+                 blast_mae       1.2232    1.2232   +0.0000    1.000
+                 coverage        0.5973    0.7988   +0.2015    0.062
+                 top1            0.3250    0.3603   +0.0353    0.062
+                 regret          1.7553    1.3719   -0.3834    0.062
+
+unseen_topology  dur_mae         2.5178    2.5303   +0.0124    0.062
+                 blast_mae       0.7202    0.7202   +0.0000    1.000
+                 coverage        0.8327    0.8331   +0.0004    0.125
+                 top1            0.7317    0.7316   -0.0000    1.000
+                 regret          0.1704    0.1721   +0.0017    1.000
+
+pooled rho(confidence, |error|):  A -0.3417   B -0.3926
+
+by tier-1 precedent count (pooled over all conditions and seeds):
+     bin        n     MAE A     MAE B     cov A     cov B
+       0    54128     7.353     7.438     0.566     0.775
+     1-2    22328     3.763     3.532     0.113     0.116
+     3-4     8148     3.172     3.216     0.617     0.618
+     5-8    18636     3.032     3.034     0.719     0.720
+      9+    56264     1.607     1.607     0.873     0.873
+
+wrote results/final_novelty_eval.json (485s)
+wrote results/fig_novelty_*.png

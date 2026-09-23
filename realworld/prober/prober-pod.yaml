@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: im-prober
+  labels: {app: im-prober}
+spec:
+  restartPolicy: Always
+  containers:
+    - name: prober
+      image: python:3.12-alpine
+      command: ["python", "-u", "/opt/prober/prober.py"]
+      env:
+        - {name: PROBE_PERIOD_S,   value: "1.0"}
+        - {name: PROBE_TIMEOUT_MS, value: "500"}
+      resources:
+        requests: {cpu: "100m", memory: "64Mi"}
+        limits:   {cpu: "500m", memory: "128Mi"}
+      volumeMounts:
+        - {name: code, mountPath: /opt/prober}
+  volumes:
+    - name: code
+      configMap: {name: im-prober-code}

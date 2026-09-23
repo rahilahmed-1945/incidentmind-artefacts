@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+kubeconfig
+
+# Local run output (regenerate with the scripts; released copies are tracked)
+*.tmp

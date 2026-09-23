@@ -1,0 +1,83 @@
+environment spec hash: b3b20acc837a2893
+generating corpora ...
+calibrating on validation ...
+  -> {'clag_scale': 1.0, 'theta': 0.3, 'm_relax': 1, 'tier_penalty': 0.05, 'beta': 0.3, 'lam_blend': 0.75, 'conflict_sep': 4.5, 'z': 2.5, 'val_blast_mae': 0.99125, 'val_dur_mae': 2.451056959642748}
+E1 main comparison ...
+   IncidentMind             MAE= 2.60 blast=0.97 J=0.782 top1=0.755 regret= 0.15
+   B0 Runbook/SOP           MAE= 9.34 blast=1.85 J=0.654 top1=0.055 regret=10.56
+   B1 Global mean           MAE= 8.97 blast=2.24 J=0.664 top1=0.055 regret=10.56
+   B2 Context-independent   MAE= 7.91 blast=2.18 J=0.669 top1=0.117 regret= 5.14
+   B3 Naive linear          MAE= 5.57 blast=2.18 J=0.669 top1=0.443 regret= 1.07
+   B4 Precedent-free        MAE= 6.54 blast=0.97 J=0.782 top1=0.348 regret= 3.36
+   B5 Precedent k-NN        MAE= 6.55 blast=1.86 J=0.673 top1=0.143 regret= 4.85
+   B6 Gradient boosting     MAE= 3.26 blast=0.90 J=0.766 top1=0.648 regret= 0.41
+   Oracle (noise floor)     MAE= 2.24 blast=0.00 J=1.000 top1=0.782 regret= 0.11
+E2 significance ...
+E3 ablations ...
+   Full mechanism                           MAE= 2.60 top1=0.755
+   without timing-duration law (Step 2)     MAE= 2.59 top1=0.783
+   without dependency route (Step 3)        MAE= 2.80 top1=0.710
+   structural route only                    MAE= 2.58 top1=0.783
+   without tiered relaxation (Step 1)       MAE= 2.60 top1=0.755
+   without robust loss                      MAE= 2.59 top1=0.758
+E4 sensitivity ...
+   corpus n=   50 MAE= 5.66 (kNN  8.21)
+   corpus n=  100 MAE= 4.92 (kNN  7.78)
+   corpus n=  250 MAE= 3.01 (kNN  6.85)
+   corpus n=  500 MAE= 2.79 (kNN  6.54)
+   corpus n= 1000 MAE= 2.71 (kNN  6.26)
+   corpus n= 1500 MAE= 2.75 (kNN  6.31)
+E5 sparse precedent and generalisation ...
+   LOFO db_saturation          MAE  2.28 ->  7.75
+   LOFO service_crash          MAE  1.82 ->  3.67
+   LOFO network_latency        MAE  2.21 ->  6.70
+   LOFO api_timeout_cascade    MAE  2.30 ->  5.49
+   LOFO resource_exhaustion    MAE  2.18 ->  6.21
+   LOFO deploy_misconfig       MAE  3.12 -> 11.12
+   LOFO cache_failure          MAE  3.02 ->  6.20
+   unseen topology MAE  2.63 (in-domain  2.52, B2  7.64)
+E6 contradictory precedent ...
+   contradiction 0%: MAE= 2.75 flag=0.049 conf=0.631
+   contradiction 5%: MAE= 2.99 flag=0.030 conf=0.610
+   contradiction 10%: MAE= 3.21 flag=0.047 conf=0.554
+   contradiction 20%: MAE= 3.81 flag=0.053 conf=0.494
+   contradiction 30%: MAE= 4.30 flag=0.050 conf=0.391
+   contradiction 40%: MAE= 5.19 flag=0.083 conf=0.290
+E7 calibration ...
+   within-regime rho=-0.119  pooled rho=-0.287  coverage=0.834
+      dense (main test)          n= 9600 MAE= 2.60 conf=0.632
+      unseen fault type          n= 9600 MAE= 6.77 conf=0.405
+      unseen topology            n= 3200 MAE= 2.63 conf=0.619
+      contradictory precedent    n= 8000 MAE= 4.74 conf=0.340
+E8 telemetry noise ...
+   jitter=0.00 drop=0.00 MAE= 2.75 J=0.751
+   jitter=0.25 drop=0.00 MAE= 2.84 J=0.751
+   jitter=0.50 drop=0.00 MAE= 3.15 J=0.744
+   jitter=0.00 drop=0.10 MAE= 2.70 J=0.750
+   jitter=0.00 drop=0.25 MAE= 2.76 J=0.707
+   jitter=0.50 drop=0.25 MAE= 3.14 J=0.696
+E9 scalability ...
+   corpus   250: build 0.09s  1.877 ms/query
+   corpus   500: build 0.13s  2.248 ms/query
+   corpus  1000: build 0.20s  2.460 ms/query
+   corpus  2000: build 0.29s  2.683 ms/query
+   corpus  4000: build 0.37s  2.732 ms/query
+   corpus  8000: build 0.53s  3.036 ms/query
+   topology    14 nodes: 0.013 ms/traversal (9 visited); unbounded 0.013 ms (9 visited)
+   topology    41 nodes: 0.024 ms/traversal (15 visited); unbounded 0.047 ms (30 visited)
+   topology   100 nodes: 0.020 ms/traversal (14 visited); unbounded 0.115 ms (66 visited)
+   topology   500 nodes: 0.017 ms/traversal (12 visited); unbounded 0.366 ms (180 visited)
+   topology  1000 nodes: 0.048 ms/traversal (27 visited); unbounded 0.872 ms (400 visited)
+   topology  2500 nodes: 0.054 ms/traversal (31 visited); unbounded 1.743 ms (755 visited)
+   topology  5000 nodes: 0.067 ms/traversal (39 visited); unbounded 3.009 ms (1255 visited)
+E10 case studies ...
+   correct best-of-three: 7/7
+E11 misspecified recovery-cost law ...
+   linear       IM MAE= 2.58 top1=0.752 | best baseline  3.11 (B6 Gradient boosting)
+   quadratic    IM MAE= 3.68 top1=0.740 | best baseline  4.20 (B6 Gradient boosting)
+   exponential  IM MAE= 3.37 top1=0.744 | best baseline  3.95 (B6 Gradient boosting)
+   sqrt         IM MAE= 2.61 top1=0.756 | best baseline  3.21 (B6 Gradient boosting)
+wrote results/tables.md
+wrote results/fig_*.png
+
+done in 1254.1s

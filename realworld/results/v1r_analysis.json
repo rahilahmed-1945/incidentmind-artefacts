@@ -1,0 +1,328 @@
+{
+  "protocol": {
+    "incidentmind_estimator_commit": "7d0ff7bd2186871d61abf1ccb8154402bc60a9ae",
+    "censor_window_s": 90,
+    "benchmark": "Online Boutique v0.10.6",
+    "manifest_sha256": "41a4736597543ee562c673c0c0446e2cc4bddf2b816c294690e83b38cfcc66a2",
+    "cluster": "kind incidentmind-fi, k8s v1.36.1, kindest/node:v1.36.1, 1 node, 16 CPU / 7.42 GiB"
+  },
+  "hp_C": {
+    "k": 12,
+    "m_min": 5,
+    "m_relax": 1,
+    "tier_penalty": 0.05,
+    "temp": 0.18,
+    "w_fault": 0.45,
+    "w_struct": 0.35,
+    "w_origin": 0.2,
+    "beta": 0.3,
+    "lam_blend": 0.75,
+    "theta": 0.3,
+    "clag": 1.6,
+    "clag_scale": 1.0,
+    "lam": 1.1,
+    "k0": 6.0,
+    "z": 2.0,
+    "conflict_sep": 4.5,
+    "use_law": true,
+    "use_dep": true,
+    "use_tiers": true,
+    "robust": true,
+    "novelty_aware": true,
+    "nov_kappa0": 1.0,
+    "nov_a": 2.0,
+    "nov_gamma_c": 0.6,
+    "nov_gamma_i": 1.0,
+    "interval_fix": true,
+    "scale_prior_df": 1.0
+  },
+  "table1_composition": {
+    "attempted": 96,
+    "measured": 90,
+    "invalid": 6,
+    "invalid_reasons": {
+      "no_steady_pre": 6
+    },
+    "corpus": 66,
+    "heldout": 24,
+    "censored_total": 41,
+    "censored_corpus": 31,
+    "censored_heldout": 10,
+    "restart_count_changed_during_incident": 30,
+    "restart_changed_on_fault_inducing_restarts": 23,
+    "clean_resets": 88,
+    "probe_events_total": 823717
+  },
+  "table2_coverage": {
+    "by_fault_service_action": {
+      "service_crash|cartservice|rollback_deploy": 4,
+      "deploy_misconfig|currencyservice|pod_restart": 2,
+      "resource_exhaustion|cartservice|pod_restart": 4,
+      "deploy_misconfig|shippingservice|pod_restart": 3,
+      "resource_exhaustion|recommendationservice|pod_restart": 4,
+      "deploy_misconfig|productcatalogservice|rollback_deploy": 7,
+      "deploy_misconfig|recommendationservice|pod_restart": 1,
+      "resource_exhaustion|recommendationservice|scale_replicas": 3,
+      "service_crash|shippingservice|scale_replicas": 4,
+      "service_crash|recommendationservice|pod_restart": 7,
+      "resource_exhaustion|cartservice|rollback_deploy": 4,
+      "service_crash|redis-cart|rollback_deploy": 3,
+      "service_crash|shippingservice|rollback_deploy": 1,
+      "resource_exhaustion|cartservice|scale_replicas": 2,
+      "service_crash|cartservice|scale_replicas": 2,
+      "deploy_misconfig|recommendationservice|scale_replicas": 1,
+      "deploy_misconfig|shippingservice|scale_replicas": 2,
+      "resource_exhaustion|currencyservice|scale_replicas": 2,
+      "service_crash|productcatalogservice|rollback_deploy": 2,
+      "service_crash|redis-cart|scale_replicas": 2,
+      "service_crash|currencyservice|pod_restart": 5,
+      "service_crash|currencyservice|scale_replicas": 3,
+      "service_crash|productcatalogservice|pod_restart": 2,
+      "deploy_misconfig|currencyservice|rollback_deploy": 2,
+      "deploy_misconfig|recommendationservice|rollback_deploy": 2,
+      "deploy_misconfig|productcatalogservice|scale_replicas": 2,
+      "deploy_misconfig|shippingservice|rollback_deploy": 1,
+      "service_crash|currencyservice|rollback_deploy": 2,
+      "service_crash|shippingservice|pod_restart": 1,
+      "service_crash|redis-cart|pod_restart": 1,
+      "resource_exhaustion|currencyservice|pod_restart": 2,
+      "service_crash|cartservice|pod_restart": 2,
+      "service_crash|productcatalogservice|scale_replicas": 1,
+      "service_crash|recommendationservice|scale_replicas": 1,
+      "service_crash|recommendationservice|rollback_deploy": 1,
+      "resource_exhaustion|currencyservice|rollback_deploy": 1,
+      "resource_exhaustion|recommendationservice|rollback_deploy": 1
+    },
+    "heldout_by_fault_action": {
+      "deploy_misconfig|rollback_deploy": 3,
+      "resource_exhaustion|pod_restart": 3,
+      "resource_exhaustion|rollback_deploy": 3,
+      "resource_exhaustion|scale_replicas": 3,
+      "service_crash|pod_restart": 4,
+      "service_crash|rollback_deploy": 4,
+      "service_crash|scale_replicas": 4
+    }
+  },
+  "memory": {
+    "n_records": 66,
+    "edges_with_learned_delay": 15,
+    "edges_total": 15,
+    "global_delay_min": 0.013175,
+    "clag_action": {
+      "rollback_deploy": 0.2,
+      "pod_restart": 0.2,
+      "scale_replicas": 0.2
+    }
+  },
+  "table3_duration": {
+    "n": 14,
+    "mae_s": 14.89324226170124,
+    "median_ae_s": 7.537698285661313,
+    "rmse_s": 23.001998261122985,
+    "bias_s": -3.510197948312844,
+    "mape_pct": 16.95442916549014,
+    "observed_range_s": [
+      59.40798,
+      123.34500000000001
+    ],
+    "predicted_range_s": [
+      63.47089398736617,
+      105.50803052681695
+    ],
+    "error_quartiles_s": [
+      1.315767372104465,
+      7.537698285661313,
+      32.3838740360292
+    ],
+    "censored_directional": {
+      "n": 10,
+      "pred_ge_80pct_of_censor_bound": 10,
+      "mean_pred_s": 134.82713158611293,
+      "mean_bound_s": 135.068004
+    }
+  },
+  "table4_blast": {
+    "n": 24,
+    "blast_mae": 0.041666666666666664,
+    "blast_observed_mean": 1.75,
+    "blast_predicted_mean": 1.7083333333333333,
+    "jaccard_mean": 0.9861111111111112,
+    "jaccard_median": 1.0,
+    "origin_detection_rate": 1.0,
+    "incidents_with_propagation": 17,
+    "intermediate_service_detection_rate": 1.0
+  },
+  "table5_propagation": {
+    "edges_observed": 7,
+    "rows": [
+      {
+        "edge": "currencyservice->checkoutservice",
+        "n": 19,
+        "observed_median_ms": 701,
+        "learned_ms": 686.9997000000001,
+        "abs_err_ms": 14.000299999999925
+      },
+      {
+        "edge": "cartservice->checkoutservice",
+        "n": 18,
+        "observed_median_ms": 586.0,
+        "learned_ms": 793.9997999999999,
+        "abs_err_ms": 207.99979999999994
+      },
+      {
+        "edge": "productcatalogservice->recommendationservice",
+        "n": 14,
+        "observed_median_ms": 595.5,
+        "learned_ms": 762.5001,
+        "abs_err_ms": 167.00009999999997
+      },
+      {
+        "edge": "shippingservice->checkoutservice",
+        "n": 12,
+        "observed_median_ms": 589.0,
+        "learned_ms": 589.0002,
+        "abs_err_ms": 0.0001999999999497959
+      },
+      {
+        "edge": "redis-cart->cartservice",
+        "n": 6,
+        "observed_median_ms": 5970.5,
+        "learned_ms": 5970.4998000000005,
+        "abs_err_ms": 0.00019999999949504854
+      },
+      {
+        "edge": "redis-cart->checkoutservice",
+        "n": 6,
+        "observed_median_ms": 7978.5,
+        "learned_ms": null,
+        "abs_err_ms": null
+      },
+      {
+        "edge": "cartservice->adservice",
+        "n": 1,
+        "observed_median_ms": 101737,
+        "learned_ms": null,
+        "abs_err_ms": null
+      }
+    ],
+    "mean_abs_edge_error_ms": 77.80011999999985,
+    "multihop_incidents": 7,
+    "multihop_all_services_predicted": 6
+  },
+  "table6_uncertainty": {
+    "n": 14,
+    "interval_coverage": 0.9285714285714286,
+    "nominal": 0.8,
+    "mean_interval_width_s": 86.64275286290207,
+    "median_interval_width_s": 82.69324618489051,
+    "mean_confidence": 0.3437019347359748,
+    "spearman_conf_vs_abs_error": 0.0945054945054945,
+    "mean_novelty": 0.06557607221221404,
+    "mean_n_tier1_precedent": 8.571428571428571,
+    "by_precedent": {
+      "3-5": {
+        "n": 3,
+        "mae_s": 26.181335828157884,
+        "coverage": 1.0
+      },
+      "6+": {
+        "n": 11,
+        "mae_s": 11.814671289031246,
+        "coverage": 0.9090909090909091
+      }
+    }
+  },
+  "table7_ranking": {
+    "note": "cell means over repeated real incidents; censored cells are lower bounds, which only compresses ineffective cells downward",
+    "faults": {
+      "resource_exhaustion": {
+        "observed_mean_s": {
+          "pod_restart": 135.424,
+          "scale_replicas": 135.47168000000002,
+          "rollback_deploy": 85.80534
+        },
+        "predicted_mean_s": {
+          "pod_restart": 135.43617077079094,
+          "scale_replicas": 135.220889686936,
+          "rollback_deploy": 104.84898756549735
+        },
+        "n_per_cell": {
+          "pod_restart": 3,
+          "scale_replicas": 3,
+          "rollback_deploy": 3
+        },
+        "censored_per_cell": {
+          "pod_restart": 3,
+          "scale_replicas": 3,
+          "rollback_deploy": 0
+        },
+        "best_observed": "rollback_deploy",
+        "best_predicted": "rollback_deploy",
+        "top1_correct": true,
+        "pairwise_concordance": 0.6666666666666666
+      },
+      "service_crash": {
+        "observed_mean_s": {
+          "pod_restart": 79.615485,
+          "scale_replicas": 77.67099,
+          "rollback_deploy": 135.54951
+        },
+        "predicted_mean_s": {
+          "pod_restart": 67.89214605632432,
+          "scale_replicas": 65.89612766229021,
+          "rollback_deploy": 134.0750336219871
+        },
+        "n_per_cell": {
+          "pod_restart": 4,
+          "scale_replicas": 4,
+          "rollback_deploy": 4
+        },
+        "censored_per_cell": {
+          "pod_restart": 0,
+          "scale_replicas": 0,
+          "rollback_deploy": 4
+        },
+        "best_observed": "scale_replicas",
+        "best_predicted": "scale_replicas",
+        "top1_correct": true,
+        "pairwise_concordance": 1.0
+      }
+    },
+    "top1_correct": 2,
+    "n_faults_ranked": 2
+  },
+  "honesty_checks": {
+    "propagation_out_of_sample": {
+      "method": "edge delays learned on the corpus, compared with medians observed only in the held-out phase",
+      "edges": 3,
+      "mean_abs_error_ms": 180.7,
+      "detail": {
+        "currencyservice->checkoutservice": {
+          "n": 7,
+          "heldout_observed_ms": 791,
+          "corpus_learned_ms": 687
+        },
+        "cartservice->checkoutservice": {
+          "n": 6,
+          "heldout_observed_ms": 573,
+          "corpus_learned_ms": 794
+        },
+        "productcatalogservice->recommendationservice": {
+          "n": 4,
+          "heldout_observed_ms": 546,
+          "corpus_learned_ms": 763
+        }
+      }
+    },
+    "propagation_artefact": "cartservice->adservice was recorded once with a 101737 ms offset. That is not causal propagation; it is a coincidental co-failure inside a long incident window, and it exposes a limitation of defining a propagation edge as any service failing between onset and recovery.",
+    "censored_duration_agreement_is_an_artefact": "All held-out incidents use tau=45 s, so the censoring bound is a near-constant 135 s. The corpus contains 31 censored records with median duration 135.5 s. A memory of ~135 s censored records will predict ~135 s for the same cells irrespective of understanding, so the 10/10 directional agreement is NOT independent evidence of accuracy and is not reported as such.",
+    "novel_combination_subset": {
+      "n": 4,
+      "mae_s": 17.4,
+      "note": "uncensored held-out incidents whose (fault,service,action) combination never appears in the corpus; MAE 17.4 s against 14.9 s overall, so accuracy roughly holds out of combination, on a very small sample."
+    },
+    "blast_result_caveat": "Online Boutique propagates deterministically along a fixed call graph and the corpus contains many incidents at the same origins, so Jaccard 0.986 and origin/intermediate detection of 1.0 reflect a largely deterministic mapping rather than hard generalisation.",
+    "ranking_caveat": "Ranking separates effective from ineffective actions largely because censored cells sit near 135 s and effective ones near 78-86 s. The estimator learned that separation from censored corpus records, so this demonstrates it identifies ineffective actions, not that it estimates their true (unbounded) duration.",
+    "deploy_misconfig_not_rankable": "Two of three deploy_misconfig action cells (pod_restart, scale_replicas) were lost to the 6 no_steady_pre aborts, so that fault group has one measured cell and cannot be ranked."
+  }
+}

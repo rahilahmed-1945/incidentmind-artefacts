@@ -1,0 +1,61 @@
+## image digests (resolved)
+redis	docker.io/library/redis@sha256:becdda6c7f4b3fb42e42fd7f120bbf5c54c4caaaf16f26da24e4563d2c1f0576
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/adservice@sha256:f580c4853e896dd2083f0c270c4b7aa5feda6dd56058a93b87d0c88334a4c07d
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/cartservice@sha256:b5c29ddb3238474ea8d1842f07004fedeeae47f660627ab111a613a681cd0356
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/checkoutservice@sha256:ab40699b6d9e45c9a93b5427008f327fbe912465361e2ff7a1a1be7111e36134
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/currencyservice@sha256:7b2f3f804555c926861d67cd22c1b7c9e32d46b81cf1a64dd3089ae424d73be9
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/emailservice@sha256:77fd45d411b3550cbd39e30bda83ed6ea23d87fd6e58e69cf9fa2808e003984d
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/frontend@sha256:c06df08eccd78568a37292cfbe889df42fac48691b7fb05f2deeba0ae8d669ef
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/paymentservice@sha256:735b6d3255e2c74b0135a95cfc2337987e492f24e163c0bb9a853635876993c4
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/productcatalogservice@sha256:fb8568ecfc948717eb07746a6ce360fb8e5f906ae8a874cbad666891f0d21790
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/recommendationservice@sha256:5d8321f2d24132889f654f75308e541b0626e6ae0cbacf81b170e5eb0921b415
+server	us-central1-docker.pkg.dev/online-boutique-ci/microservices-demo/shippingservice@sha256:8527bafff8c8776e345f2dca0641f6e8595b053ce67f9a5af66f5a85d9eaca9d
+
+## k8s version
+{
+  "clientVersion": {
+    "major": "1",
+    "minor": "36",
+    "gitVersion": "v1.36.2",
+    "gitCommit": "24e2b02af5543d7910c2bb074c7264df5a8f0467",
+    "gitTreeState": "clean",
+    "buildDate": "2026-06-11T18:12:06Z",
+    "goVersion": "go1.26.4",
+    "compiler": "gc",
+    "platform": "linux/amd64"
+  },
+  "kustomizeVersion": "v5.8.1",
+  "serverVersion": {
+    "major": "1",
+    "minor": "36",
+    "emulationMajor": "1",
+    "emulationMinor": "36",
+    "minCompatibilityMajor": "1",
+    "minCompatibilityMinor": "35",
+    "gitVersion": "v1.36.1",
+    "gitCommit": "756939600b9a7180fc2df6550a4585b638875e67",
+    "gitTreeState": "clean",
+    "buildDate": "2026-05-12T09:51:34Z",
+    "goVersion": "go1.26.2",
+    "compiler": "gc",
+    "platform": "linux/amd64"
+  }
+}
+
+## node
+v1.36.1
+{"cpu":"16","ephemeral-storage":"1055762868Ki","hugepages-1Gi":"0","hugepages-2Mi":"0","memory":"7778380Ki","pods":"110"}
+
+## resource requests/limits
+NAME                    CPUREQ   MEMREQ   CPULIM   MEMLIM
+adservice               200m     180Mi    300m     300Mi
+cartservice             200m     64Mi     300m     128Mi
+checkoutservice         100m     64Mi     200m     128Mi
+currencyservice         100m     64Mi     200m     128Mi
+emailservice            100m     64Mi     200m     128Mi
+frontend                100m     64Mi     200m     128Mi
+paymentservice          100m     64Mi     200m     128Mi
+productcatalogservice   100m     64Mi     200m     128Mi
+recommendationservice   100m     220Mi    200m     450Mi
+redis-cart              70m      200Mi    125m     256Mi
+shippingservice         100m     64Mi     200m     128Mi

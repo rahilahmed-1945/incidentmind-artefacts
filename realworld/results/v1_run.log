@@ -1,0 +1,68 @@
+[23:10:49] waiting for probe stream ...
+[23:10:50] === phase 1: 16 persistence controls ===
+[23:10:50] CONTROL service_crash @ productcatalogservice (no recovery, 100s)
+[23:12:38]   -> PERSISTENT (admitted=True)
+[23:13:06] CONTROL service_crash @ currencyservice (no recovery, 100s)
+[23:14:54]   -> PERSISTENT (admitted=True)
+[23:16:26] CONTROL service_crash @ shippingservice (no recovery, 100s)
+[23:19:40]   -> PERSISTENT (admitted=True)
+[23:20:20] CONTROL service_crash @ recommendationservice (no recovery, 100s)
+[23:22:09]   -> PERSISTENT (admitted=True)
+[23:22:56] CONTROL service_crash @ cartservice (no recovery, 100s)
+[23:24:45]   -> PERSISTENT (admitted=True)
+[23:26:14] CONTROL service_crash @ redis-cart (no recovery, 100s)
+[23:28:03]   -> PERSISTENT (admitted=True)
+[23:28:23] CONTROL deploy_misconfig @ productcatalogservice (no recovery, 100s)
+[23:30:12]   -> PERSISTENT (admitted=True)
+[23:30:51] CONTROL deploy_misconfig @ currencyservice (no recovery, 100s)
+[23:32:40]   -> PERSISTENT (admitted=True)
+[23:33:31] CONTROL deploy_misconfig @ shippingservice (no recovery, 100s)
+[23:35:20]   -> PERSISTENT (admitted=True)
+[23:36:06] CONTROL deploy_misconfig @ recommendationservice (no recovery, 100s)
+[23:37:55]   -> PERSISTENT (admitted=True)
+[23:38:25] CONTROL deploy_misconfig @ redis-cart (no recovery, 100s)
+[23:40:15]   -> SELF_HEALED (admitted=False)
+[23:40:28] CONTROL resource_exhaustion @ currencyservice (no recovery, 100s)
+[23:42:18]   -> PERSISTENT (admitted=True)
+[23:43:11] CONTROL resource_exhaustion @ shippingservice (no recovery, 100s)
+[23:45:00]   -> SELF_HEALED (admitted=False)
+[23:45:17] CONTROL resource_exhaustion @ recommendationservice (no recovery, 100s)
+[23:47:07]   -> PERSISTENT (admitted=True)
+[23:51:12] waiting for probe stream ...
+[23:51:13] === phase 1: 3 persistence controls ===
+[23:51:13] CONTROL resource_exhaustion @ recommendationservice (no recovery, 100s)
+[23:52:12] CONTROL resource_exhaustion @ cartservice (no recovery, 100s)
+[23:56:12] CONTROL resource_exhaustion @ redis-cart (no recovery, 100s)
+[00:00:13] admitted cells (12): [('deploy_misconfig', 'currencyservice'), ('deploy_misconfig', 'productcatalogservice'), ('deploy_misconfig', 'recommendationservice'), ('deploy_misconfig', 'shippingservice'), ('resource_exhaustion', 'currencyservice'), ('resource_exhaustion', 'recommendationservice'), ('service_crash', 'cartservice'), ('service_crash', 'currencyservice'), ('service_crash', 'productcatalogservice'), ('service_crash', 'recommendationservice'), ('service_crash', 'redis-cart'), ('service_crash', 'shippingservice')]
+[00:06:18] waiting for probe stream ...
+[00:06:19] admitted cells (12): [('deploy_misconfig', 'currencyservice'), ('deploy_misconfig', 'productcatalogservice'), ('deploy_misconfig', 'recommendationservice'), ('deploy_misconfig', 'shippingservice'), ('resource_exhaustion', 'currencyservice'), ('resource_exhaustion', 'recommendationservice'), ('service_crash', 'cartservice'), ('service_crash', 'currencyservice'), ('service_crash', 'productcatalogservice'), ('service_crash', 'recommendationservice'), ('service_crash', 'redis-cart'), ('service_crash', 'shippingservice')]
+[00:06:19] === phase 0: stability batch (10 incidents) ===
+[00:06:20] s001 [stability] deploy_misconfig @ productcatalogservice act=scale_replicas tau=90s
+[00:10:30]   CENSORED (no recovery within 150s)
+[00:10:30]   dur 240.6s blast=2 prop={'recommendationservice': 549} [CENSORED]
+[00:11:53] s002 [stability] resource_exhaustion @ recommendationservice act=scale_replicas tau=15s
+[00:14:52]   CENSORED (no recovery within 150s)
+[00:14:53]   dur 165.4s blast=1 prop={} [CENSORED]
+[00:15:21] s003 [stability] deploy_misconfig @ shippingservice act=scale_replicas tau=90s
+[00:19:32]   CENSORED (no recovery within 150s)
+[00:19:32]   dur 240.6s blast=2 prop={'checkoutservice': 466} [CENSORED]
+[00:21:17] s004 [stability] deploy_misconfig @ productcatalogservice act=pod_restart tau=45s
+[00:24:41]   CENSORED (no recovery within 150s)
+[00:24:42]   dur 195.4s blast=2 prop={'recommendationservice': 445} [CENSORED]
+[00:26:47] s005 [stability] deploy_misconfig @ recommendationservice act=scale_replicas tau=45s
+[00:30:17]   CENSORED (no recovery within 150s)
+[00:30:17]   dur 195.5s blast=1 prop={} [CENSORED]
+[00:30:47] s006 [stability] service_crash @ redis-cart act=rollback_deploy tau=15s
+[00:33:41]   CENSORED (no recovery within 150s)
+[00:33:41]   dur 165.5s blast=3 prop={'cartservice': 6049, 'checkoutservice': 8054} [CENSORED]
+[00:33:56] s007 [stability] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=90s
+[00:36:26]   dur 131.7s blast=2 prop={'recommendationservice': 855}
+[00:36:38] s008 [stability] service_crash @ shippingservice act=scale_replicas tau=15s
+[00:37:21]   dur 25.5s blast=2 prop={'checkoutservice': 598}
+[00:37:34] s009 [stability] service_crash @ cartservice act=scale_replicas tau=90s
+[00:40:52]   dur 181.0s blast=2 prop={'checkoutservice': 774}
+[00:41:05] s010 [stability] service_crash @ recommendationservice act=rollback_deploy tau=15s
+[00:44:05]   CENSORED (no recovery within 150s)
+[00:44:05]   dur 165.4s blast=1 prop={} [CENSORED]
+[00:45:23] stability: {'n': 10, 'ok': 3, 'container_restarts_delta': 0, 'feed_reconnects': 1, 'resets_ok': 10, 'mean_cycle_s': 233.64000000000001, 'mean_probe_events': 14058.6, 'pass': False}
+[00:45:23] STABILITY GATE FAILED -- stopping before the campaign

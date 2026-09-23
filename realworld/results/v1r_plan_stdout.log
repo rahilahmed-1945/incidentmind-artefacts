@@ -1,0 +1,7 @@
+[01:28:53] waiting for probe stream ...
+[01:28:54] CONTROL resource_exhaustion @ cartservice (no recovery, 100s)
+[01:30:43]   -> PERSISTENT (admitted=True)
+[01:32:27] CONTROL resource_exhaustion @ redis-cart (no recovery, 100s)
+[01:34:16]   -> SELF_HEALED (admitted=False)
+[01:34:30] admitted cells (13): [('deploy_misconfig', 'currencyservice'), ('deploy_misconfig', 'productcatalogservice'), ('deploy_misconfig', 'recommendationservice'), ('deploy_misconfig', 'shippingservice'), ('resource_exhaustion', 'cartservice'), ('resource_exhaustion', 'currencyservice'), ('resource_exhaustion', 'recommendationservice'), ('service_crash', 'cartservice'), ('service_crash', 'currencyservice'), ('service_crash', 'productcatalogservice'), ('service_crash', 'recommendationservice'), ('service_crash', 'redis-cart'), ('service_crash', 'shippingservice')]
+[01:34:30] held-out allocation: 9 cells, counts={'service_crash|pod_restart': 4, 'service_crash|scale_replicas': 4, 'service_crash|rollback_deploy': 4, 'deploy_misconfig|pod_restart': 3, 'deploy_misconfig|scale_replicas': 3, 'deploy_misconfig|rollback_deploy': 3, 'resource_exhaustion|pod_restart': 3, 'resource_exhaustion|scale_replicas': 3, 'resource_exhaustion|rollback_deploy': 3}

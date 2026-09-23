@@ -1,0 +1,236 @@
+[01:35:51] waiting for probe stream ...
+[01:35:51] admitted cells (13): [('deploy_misconfig', 'currencyservice'), ('deploy_misconfig', 'productcatalogservice'), ('deploy_misconfig', 'recommendationservice'), ('deploy_misconfig', 'shippingservice'), ('resource_exhaustion', 'cartservice'), ('resource_exhaustion', 'currencyservice'), ('resource_exhaustion', 'recommendationservice'), ('service_crash', 'cartservice'), ('service_crash', 'currencyservice'), ('service_crash', 'productcatalogservice'), ('service_crash', 'recommendationservice'), ('service_crash', 'redis-cart'), ('service_crash', 'shippingservice')]
+[01:35:51] held-out allocation: 9 cells, counts={'service_crash|pod_restart': 4, 'service_crash|scale_replicas': 4, 'service_crash|rollback_deploy': 4, 'deploy_misconfig|pod_restart': 3, 'deploy_misconfig|scale_replicas': 3, 'deploy_misconfig|rollback_deploy': 3, 'resource_exhaustion|pod_restart': 3, 'resource_exhaustion|scale_replicas': 3, 'resource_exhaustion|rollback_deploy': 3}
+[01:35:51] === phase 0: stability batch (6 incidents, infra gate) ===
+[01:35:52] st01 [stability] service_crash @ cartservice act=rollback_deploy tau=90s
+[01:39:01]   CENSORED (no recovery within 90s of the action)
+[01:39:02]   dur 180.6s blast=2 prop={'checkoutservice': 410} [CENSORED]
+[01:41:38] st02 [stability] deploy_misconfig @ currencyservice act=pod_restart tau=90s
+[01:44:53]   CENSORED (no recovery within 90s of the action)
+[01:44:54]   dur 180.5s blast=2 prop={'checkoutservice': 556} [CENSORED]
+[01:46:48] st03 [stability] resource_exhaustion @ cartservice act=pod_restart tau=90s
+[01:49:58]   CENSORED (no recovery within 90s of the action)
+[01:49:58]   dur 180.5s blast=2 prop={'checkoutservice': 805} [CENSORED]
+[01:52:22] st04 [stability] deploy_misconfig @ shippingservice act=pod_restart tau=15s
+[01:54:17]   CENSORED (no recovery within 90s of the action)
+[01:54:17]   dur 105.5s blast=2 prop={'checkoutservice': 429} [CENSORED]
+[01:55:00] st05 [stability] resource_exhaustion @ recommendationservice act=pod_restart tau=15s
+[01:57:00]   CENSORED (no recovery within 90s of the action)
+[01:57:00]   dur 105.5s blast=1 prop={} [CENSORED]
+[01:58:05] st06 [stability] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=15s
+[01:58:50]   dur 27.7s blast=2 prop={'recommendationservice': 827}
+[01:59:03] stability gate: pass=True {'no_unexpected_container_restarts': True, 'clean_reset_between_incidents': True, 'telemetry_continuity': True, 'healthy_baseline_before_each': True, 'no_unexplained_data_loss': True, 'no_duplicate_orchestrator': True}
+[01:59:03] === phase 2: corpus (60) ===
+[01:59:03] c001 [corpus] service_crash @ cartservice act=rollback_deploy tau=90s
+[02:02:12]   CENSORED (no recovery within 90s of the action)
+[02:02:13]   dur 180.6s blast=2 prop={'checkoutservice': 596} [CENSORED]
+[02:04:06] c002 [corpus] deploy_misconfig @ currencyservice act=pod_restart tau=90s
+[02:07:21]   CENSORED (no recovery within 90s of the action)
+[02:07:22]   dur 180.6s blast=2 prop={'checkoutservice': 701} [CENSORED]
+[02:09:48] c003 [corpus] resource_exhaustion @ cartservice act=pod_restart tau=90s
+[02:12:58]   CENSORED (no recovery within 90s of the action)
+[02:12:58]   dur 180.5s blast=2 prop={'checkoutservice': 794} [CENSORED]
+[02:15:07] c004 [corpus] deploy_misconfig @ shippingservice act=pod_restart tau=15s
+[02:17:01]   CENSORED (no recovery within 90s of the action)
+[02:17:02]   dur 105.5s blast=2 prop={'checkoutservice': 856} [CENSORED]
+[02:18:24] c005 [corpus] resource_exhaustion @ recommendationservice act=pod_restart tau=15s
+[02:20:24]   CENSORED (no recovery within 90s of the action)
+[02:20:24]   dur 105.3s blast=1 prop={} [CENSORED]
+[02:20:54] c006 [corpus] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=15s
+[02:21:40]   dur 28.2s blast=2 prop={'recommendationservice': 560}
+[02:21:52] c007 [corpus] deploy_misconfig @ shippingservice act=pod_restart tau=15s
+[02:23:46]   CENSORED (no recovery within 90s of the action)
+[02:23:47]   dur 105.4s blast=2 prop={'checkoutservice': 723} [CENSORED]
+[02:24:30] c008 [corpus] deploy_misconfig @ recommendationservice act=pod_restart tau=90s
+[02:27:45]   CENSORED (no recovery within 90s of the action)
+[02:27:45]   dur 180.5s blast=1 prop={} [CENSORED]
+[02:29:07] c009 [corpus] resource_exhaustion @ recommendationservice act=scale_replicas tau=15s
+[02:31:07]   CENSORED (no recovery within 90s of the action)
+[02:31:07]   dur 105.6s blast=1 prop={} [CENSORED]
+[02:31:37] c010 [corpus] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=90s
+[02:34:04]   dur 129.4s blast=2 prop={'recommendationservice': 4114}
+[02:34:16] c011 [corpus] service_crash @ shippingservice act=scale_replicas tau=45s
+[02:35:42]   dur 68.6s blast=2 prop={'checkoutservice': 887}
+[02:35:56] c012 [corpus] service_crash @ recommendationservice act=pod_restart tau=90s
+[02:38:41]   dur 143.3s blast=1 prop={}
+[02:38:53] c013 [corpus] resource_exhaustion @ cartservice act=rollback_deploy tau=15s
+[02:40:21]   dur 70.3s blast=2 prop={'checkoutservice': 787}
+[02:40:33] c014 [corpus] service_crash @ recommendationservice act=pod_restart tau=90s
+[02:42:49]   dur 114.1s blast=1 prop={}
+[02:43:01] c015 [corpus] service_crash @ redis-cart act=rollback_deploy tau=90s
+[02:46:11]   CENSORED (no recovery within 90s of the action)
+[02:46:11]   dur 180.5s blast=3 prop={'cartservice': 6155, 'checkoutservice': 8160} [CENSORED]
+[02:46:30] c016 [corpus] resource_exhaustion @ cartservice act=rollback_deploy tau=15s
+[02:48:02]   dur 73.9s blast=2 prop={'checkoutservice': 438}
+[02:48:14] c017 [corpus] service_crash @ shippingservice act=rollback_deploy tau=45s
+[02:50:38]   CENSORED (no recovery within 90s of the action)
+[02:50:39]   dur 135.4s blast=2 prop={'checkoutservice': 539} [CENSORED]
+[02:51:42] c018 [corpus] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=15s
+[02:52:29]   dur 28.8s blast=2 prop={'recommendationservice': 698}
+[02:52:41] c019 [corpus] resource_exhaustion @ cartservice act=scale_replicas tau=90s
+[02:55:51]   CENSORED (no recovery within 90s of the action)
+[02:55:51]   dur 180.5s blast=2 prop={'checkoutservice': 537} [CENSORED]
+[02:58:04] c020 [corpus] service_crash @ cartservice act=scale_replicas tau=45s
+[03:00:14]   dur 112.2s blast=2 prop={'checkoutservice': 867}
+[03:00:27] c021 [corpus] deploy_misconfig @ recommendationservice act=scale_replicas tau=15s
+[03:02:27]   CENSORED (no recovery within 90s of the action)
+[03:02:27]   dur 105.6s blast=1 prop={} [CENSORED]
+[03:02:55] c022 [corpus] resource_exhaustion @ recommendationservice act=pod_restart tau=90s
+[03:06:10]   CENSORED (no recovery within 90s of the action)
+[03:06:10]   dur 180.6s blast=1 prop={} [CENSORED]
+[03:06:45] c023 [corpus] deploy_misconfig @ shippingservice act=scale_replicas tau=45s
+[03:09:10]   CENSORED (no recovery within 90s of the action)
+[03:09:10]   dur 135.5s blast=2 prop={'checkoutservice': 469} [CENSORED]
+[03:10:19] c024 [corpus] resource_exhaustion @ currencyservice act=scale_replicas tau=45s
+[03:12:49]   CENSORED (no recovery within 90s of the action)
+[03:12:49]   dur 135.5s blast=2 prop={'checkoutservice': 475} [CENSORED]
+[03:13:44] c025 [corpus] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=45s
+[03:15:06]   dur 63.8s blast=2 prop={'recommendationservice': 835}
+[03:15:18] c026 [corpus] service_crash @ productcatalogservice act=rollback_deploy tau=15s
+[03:17:12]   CENSORED (no recovery within 90s of the action)
+[03:17:12]   dur 105.5s blast=2 prop={'recommendationservice': 501} [CENSORED]
+[03:17:51] c027 [corpus] service_crash @ recommendationservice act=pod_restart tau=45s
+[03:19:18]   dur 64.8s blast=1 prop={}
+[03:19:30] c028 [corpus] service_crash @ redis-cart act=scale_replicas tau=15s
+[03:20:06]   dur 18.4s blast=3 prop={'cartservice': 5886, 'checkoutservice': 7894}
+[03:20:19] c029 [corpus] service_crash @ redis-cart act=rollback_deploy tau=45s
+[03:22:44]   CENSORED (no recovery within 90s of the action)
+[03:22:44]   dur 135.4s blast=3 prop={'cartservice': 5865, 'checkoutservice': 7873} [CENSORED]
+[03:22:59] c030 [corpus] service_crash @ currencyservice act=pod_restart tau=45s
+[03:24:27]   dur 66.2s blast=2 prop={'checkoutservice': 4193}
+[03:24:39] c031 [corpus] service_crash @ currencyservice act=scale_replicas tau=45s
+[03:26:04]   dur 62.0s blast=2 prop={'checkoutservice': 4154}
+[03:26:15] c032 [corpus] service_crash @ productcatalogservice act=pod_restart tau=15s
+[03:27:00]   dur 27.3s blast=2 prop={'recommendationservice': 869}
+[03:27:12] c033 [corpus] deploy_misconfig @ currencyservice act=rollback_deploy tau=15s
+[03:28:19]   dur 45.2s blast=2 prop={'checkoutservice': 842}
+[03:28:31] c034 [corpus] service_crash @ redis-cart act=scale_replicas tau=45s
+[03:29:37]   dur 48.4s blast=3 prop={'cartservice': 6191, 'checkoutservice': 8198}
+[03:29:49] c035 [corpus] deploy_misconfig @ recommendationservice act=rollback_deploy tau=90s
+[03:32:02]   dur 110.4s blast=1 prop={}
+[03:32:14] c036 [corpus] resource_exhaustion @ cartservice act=pod_restart tau=90s
+[03:35:23]   CENSORED (no recovery within 90s of the action)
+[03:35:24]   dur 180.4s blast=2 prop={'checkoutservice': 657} [CENSORED]
+[03:37:13] c037 [corpus] service_crash @ shippingservice act=scale_replicas tau=90s
+[03:39:26]   dur 115.6s blast=2 prop={'checkoutservice': 4123}
+[03:39:40] c038 [corpus] service_crash @ shippingservice act=scale_replicas tau=90s
+[03:42:05]   dur 127.7s blast=2 prop={'checkoutservice': 446}
+[03:42:18] c039 [corpus] deploy_misconfig @ productcatalogservice act=scale_replicas tau=15s
+[03:44:13]   CENSORED (no recovery within 90s of the action)
+[03:44:13]   dur 105.5s blast=2 prop={'recommendationservice': 577} [CENSORED]
+[03:45:41] c040 [corpus] service_crash @ currencyservice act=pod_restart tau=15s
+[03:46:47]   dur 44.3s blast=2 prop={'checkoutservice': 631}
+[03:46:59] c041 [corpus] service_crash @ recommendationservice act=pod_restart tau=45s
+[03:48:20]   dur 58.6s blast=1 prop={}
+[03:48:32] c042 [corpus] service_crash @ recommendationservice act=pod_restart tau=45s
+[03:49:53]   dur 59.2s blast=1 prop={}
+[03:50:05] c043 [corpus] deploy_misconfig @ shippingservice act=rollback_deploy tau=45s
+[03:51:37]   dur 74.3s blast=2 prop={'checkoutservice': 492}
+[03:51:49] c044 [corpus] service_crash @ currencyservice act=rollback_deploy tau=45s
+[03:54:18]   CENSORED (no recovery within 90s of the action)
+[03:54:19]   dur 135.4s blast=2 prop={'checkoutservice': 542} [CENSORED]
+[03:55:35] c045 [corpus] service_crash @ shippingservice act=pod_restart tau=90s
+[03:57:47]   dur 115.4s blast=2 prop={'checkoutservice': 4184}
+[03:57:59] c046 [corpus] service_crash @ cartservice act=rollback_deploy tau=90s
+[04:01:08]   CENSORED (no recovery within 90s of the action)
+[04:01:09]   dur 180.6s blast=2 prop={'checkoutservice': 794} [CENSORED]
+[04:03:08] c047 [corpus] service_crash @ redis-cart act=pod_restart tau=45s
+[04:04:18]   dur 52.7s blast=3 prop={'cartservice': 5846, 'checkoutservice': 7855}
+[04:04:30] c048 [corpus] service_crash @ recommendationservice act=pod_restart tau=90s
+[04:06:36]   dur 103.9s blast=1 prop={}
+[04:06:48] c049 [corpus] service_crash @ currencyservice act=scale_replicas tau=15s
+[04:07:52]   dur 41.8s blast=2 prop={'checkoutservice': 731}
+[04:08:10] c050 [corpus] service_crash @ shippingservice act=scale_replicas tau=15s
+[04:08:52]   dur 25.8s blast=2 prop={'checkoutservice': 639}
+[04:09:06] c051 [corpus] service_crash @ redis-cart act=rollback_deploy tau=45s
+[04:11:30]   CENSORED (no recovery within 90s of the action)
+[04:11:30]   dur 135.3s blast=3 prop={'cartservice': 6055, 'checkoutservice': 8063} [CENSORED]
+[04:11:46] c052 [corpus] resource_exhaustion @ recommendationservice act=scale_replicas tau=90s
+[04:15:01]   CENSORED (no recovery within 90s of the action)
+[04:15:01]   dur 180.7s blast=1 prop={} [CENSORED]
+[04:17:29] c053 [corpus] resource_exhaustion @ currencyservice act=pod_restart tau=90s
+[04:20:44]   CENSORED (no recovery within 90s of the action)
+[04:20:44]   dur 180.3s blast=2 prop={'checkoutservice': 838} [CENSORED]
+[04:23:11] c054 [corpus] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=15s
+[04:23:53]   dur 24.3s blast=2 prop={'recommendationservice': 475}
+[04:24:04] c055 [corpus] service_crash @ cartservice act=pod_restart tau=15s
+[04:25:09]   dur 47.1s blast=2 prop={'checkoutservice': 411}
+[04:25:21] c056 [corpus] service_crash @ currencyservice act=pod_restart tau=90s
+[04:27:41]   dur 117.8s blast=2 prop={'checkoutservice': 673}
+[04:27:53] c057 [corpus] service_crash @ currencyservice act=pod_restart tau=90s
+[04:30:17]   dur 122.2s blast=2 prop={'checkoutservice': 524}
+[04:30:29] c058 [corpus] resource_exhaustion @ cartservice act=rollback_deploy tau=45s
+[04:32:36]   dur 109.7s blast=2 prop={'checkoutservice': 545}
+[04:32:48] c059 [corpus] deploy_misconfig @ shippingservice act=scale_replicas tau=45s
+[04:35:13]   CENSORED (no recovery within 90s of the action)
+[04:35:13]   dur 135.6s blast=2 prop={'checkoutservice': 533} [CENSORED]
+[04:36:16] c060 [corpus] deploy_misconfig @ productcatalogservice act=scale_replicas tau=45s
+[04:38:40]   CENSORED (no recovery within 90s of the action)
+[04:38:40]   dur 135.4s blast=2 prop={'recommendationservice': 4154} [CENSORED]
+[04:39:55] CORPUS FROZEN: 60 incidents
+[04:39:55] === phase 3: held-out (30) ===
+[04:39:55] h001 [heldout] service_crash @ cartservice act=pod_restart tau=45s
+[04:42:16]   dur 123.3s blast=2 prop={'checkoutservice': 447}
+[04:42:27] h002 [heldout] service_crash @ currencyservice act=pod_restart tau=45s
+[04:43:59]   dur 69.5s blast=2 prop={'checkoutservice': 843}
+[04:44:10] h003 [heldout] service_crash @ productcatalogservice act=pod_restart tau=45s
+[04:45:27]   dur 59.4s blast=2 prop={'recommendationservice': 441}
+[04:45:38] h004 [heldout] service_crash @ recommendationservice act=pod_restart tau=45s
+[04:47:07]   dur 66.2s blast=1 prop={}
+[04:47:19] h005 [heldout] service_crash @ cartservice act=scale_replicas tau=45s
+[04:49:25]   dur 108.6s blast=3 prop={'adservice': 101737, 'checkoutservice': 622}
+[04:49:39] h006 [heldout] service_crash @ currencyservice act=scale_replicas tau=45s
+[04:51:16]   dur 74.7s blast=2 prop={'checkoutservice': 603}
+[04:51:28] h007 [heldout] service_crash @ productcatalogservice act=scale_replicas tau=45s
+[04:52:49]   dur 63.4s blast=2 prop={'recommendationservice': 524}
+[04:53:03] h008 [heldout] service_crash @ recommendationservice act=scale_replicas tau=45s
+[04:54:30]   dur 64.0s blast=1 prop={}
+[04:54:43] h009 [heldout] service_crash @ cartservice act=rollback_deploy tau=45s
+[04:57:07]   CENSORED (no recovery within 90s of the action)
+[04:57:08]   dur 135.4s blast=2 prop={'checkoutservice': 576} [CENSORED]
+[04:58:30] h010 [heldout] service_crash @ currencyservice act=rollback_deploy tau=45s
+[05:00:59]   CENSORED (no recovery within 90s of the action)
+[05:01:00]   dur 135.4s blast=2 prop={'checkoutservice': 791} [CENSORED]
+[05:02:03] h011 [heldout] service_crash @ productcatalogservice act=rollback_deploy tau=45s
+[05:04:28]   CENSORED (no recovery within 90s of the action)
+[05:04:29]   dur 135.6s blast=2 prop={'recommendationservice': 614} [CENSORED]
+[05:05:30] h012 [heldout] service_crash @ recommendationservice act=rollback_deploy tau=45s
+[05:08:01]   CENSORED (no recovery within 90s of the action)
+[05:08:01]   dur 135.8s blast=1 prop={} [CENSORED]
+[05:13:08] h013 [heldout] deploy_misconfig @ currencyservice act=pod_restart tau=45s
+[05:17:09] h014 [heldout] deploy_misconfig @ productcatalogservice act=pod_restart tau=45s
+[05:21:10] h015 [heldout] deploy_misconfig @ recommendationservice act=pod_restart tau=45s
+[05:25:11] h016 [heldout] deploy_misconfig @ currencyservice act=scale_replicas tau=45s
+[05:29:12] h017 [heldout] deploy_misconfig @ productcatalogservice act=scale_replicas tau=45s
+[05:33:13] h018 [heldout] deploy_misconfig @ recommendationservice act=scale_replicas tau=45s
+[05:37:14] h019 [heldout] deploy_misconfig @ currencyservice act=rollback_deploy tau=45s
+[05:39:49]   dur 76.5s blast=2 prop={'checkoutservice': 432}
+[05:40:00] h020 [heldout] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=45s
+[05:41:20]   dur 62.1s blast=2 prop={'recommendationservice': 567}
+[05:41:31] h021 [heldout] deploy_misconfig @ recommendationservice act=rollback_deploy tau=45s
+[05:43:03]   dur 69.3s blast=1 prop={}
+[05:43:15] h022 [heldout] resource_exhaustion @ cartservice act=pod_restart tau=45s
+[05:45:40]   CENSORED (no recovery within 90s of the action)
+[05:45:40]   dur 135.5s blast=2 prop={'checkoutservice': 462} [CENSORED]
+[06:14:26] h023 [heldout] resource_exhaustion @ currencyservice act=pod_restart tau=45s
+[06:17:32]   CENSORED (no recovery within 90s of the action)
+[06:17:32]   dur 135.4s blast=2 prop={'checkoutservice': 559} [CENSORED]
+[06:19:04] h024 [heldout] resource_exhaustion @ recommendationservice act=pod_restart tau=45s
+[06:21:33]   CENSORED (no recovery within 90s of the action)
+[06:21:34]   dur 135.3s blast=1 prop={} [CENSORED]
+[06:22:38] h025 [heldout] resource_exhaustion @ cartservice act=scale_replicas tau=45s
+[06:25:03]   CENSORED (no recovery within 90s of the action)
+[06:25:03]   dur 135.6s blast=2 prop={'checkoutservice': 755} [CENSORED]
+[06:26:35] h026 [heldout] resource_exhaustion @ currencyservice act=scale_replicas tau=45s
+[06:29:04]   CENSORED (no recovery within 90s of the action)
+[06:29:05]   dur 135.5s blast=2 prop={'checkoutservice': 4172} [CENSORED]
+[06:30:27] h027 [heldout] resource_exhaustion @ recommendationservice act=scale_replicas tau=45s
+[06:32:57]   CENSORED (no recovery within 90s of the action)
+[06:32:57]   dur 135.3s blast=1 prop={} [CENSORED]
+[06:33:48] h028 [heldout] resource_exhaustion @ cartservice act=rollback_deploy tau=45s
+[06:36:02]   dur 116.1s blast=2 prop={'checkoutservice': 570}
+[06:36:14] h029 [heldout] resource_exhaustion @ currencyservice act=rollback_deploy tau=45s
+[06:37:51]   dur 74.7s blast=2 prop={'checkoutservice': 4060}
+[06:38:02] h030 [heldout] resource_exhaustion @ recommendationservice act=rollback_deploy tau=45s
+[06:39:32]   dur 66.6s blast=1 prop={}
+[06:39:43] V1r campaign complete

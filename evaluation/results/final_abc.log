@@ -1,0 +1,53 @@
+A: novelty_aware=False interval_fix=False z=2.5
+B: novelty_aware=True interval_fix=False z=2.5
+C: novelty_aware=True interval_fix=True scale_prior_df=1.0 z=2.0
+NEW evaluation seeds: [700101, 700202, 700303, 700404, 700505, 700606] 
+
+building memories from train (seed 101) ...
+  seed 700101 done (261s)
+  seed 700202 done (393s)
+  seed 700303 done (487s)
+  seed 700404 done (582s)
+  seed 700505 done (691s)
+  seed 700606 done (821s)
+
+condition        metric              A         B         C   B-A / C-A
+------------------------------------------------------------------------------
+seen             dur_mae        2.3920    2.3963    2.3963   +0.0043 / +0.0043
+                 blast_mae      1.0924    1.0924    1.0924   +0.0000 / +0.0000
+                 top1           0.7522    0.7531    0.7531   +0.0008 / +0.0008
+                 regret         0.1640    0.1619    0.1619   -0.0021 / -0.0021
+                 coverage       0.8399    0.8403    0.8497   +0.0003 / +0.0098
+
+sparse           dur_mae        3.8956    3.8073    3.8073   -0.0883 / -0.0883
+                 blast_mae      1.2836    1.2836    1.2836   +0.0000 / +0.0000
+                 top1           0.7100    0.6967    0.6967   -0.0133 / -0.0133
+                 regret         0.3274    0.3064    0.3064   -0.0210 / -0.0210
+                 coverage       0.3890    0.4280    0.7992   +0.0390 / +0.4101
+
+unseen_fault     dur_mae        6.5285    6.6230    6.6230   +0.0945 / +0.0945
+                 blast_mae      1.1793    1.1793    1.1793   +0.0000 / +0.0000
+                 top1           0.3417    0.3686    0.3686   +0.0269 / +0.0269
+                 regret         1.7413    1.3738    1.3738   -0.3675 / -0.3675
+                 coverage       0.6075    0.8032    0.7738   +0.1957 / +0.1663
+
+unseen_topology  dur_mae        2.5241    2.5386    2.5386   +0.0145 / +0.0145
+                 blast_mae      0.7360    0.7360    0.7360   +0.0000 / +0.0000
+                 top1           0.7358    0.7366    0.7366   +0.0008 / +0.0008
+                 regret         0.1652    0.1646    0.1646   -0.0006 / -0.0006
+                 coverage       0.8332    0.8335    0.8291   +0.0002 / -0.0041
+
+pooled rho(confidence, |error|):  A -0.3458  B -0.3934  C -0.3509
+
+coverage by tier-1 precedent count (pooled over conditions and seeds):
+      bin         n     cov A     cov B     cov C
+        0     65272     0.578     0.784     0.748
+      1-2     26708     0.114     0.116     0.779
+      3-4      9444     0.615     0.618     0.820
+      5-8     22220     0.718     0.718     0.809
+       9+     68484     0.867     0.867     0.880
+
+B and C identical on MAE / blast / top-1 / regret / Jaccard: True
+
+wrote results/final_abc_eval.json (821s)
+wrote results/fig_abc_summary.png

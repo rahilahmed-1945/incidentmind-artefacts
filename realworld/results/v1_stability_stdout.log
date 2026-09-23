@@ -1,0 +1,32 @@
+[00:06:18] waiting for probe stream ...
+[00:06:19] admitted cells (12): [('deploy_misconfig', 'currencyservice'), ('deploy_misconfig', 'productcatalogservice'), ('deploy_misconfig', 'recommendationservice'), ('deploy_misconfig', 'shippingservice'), ('resource_exhaustion', 'currencyservice'), ('resource_exhaustion', 'recommendationservice'), ('service_crash', 'cartservice'), ('service_crash', 'currencyservice'), ('service_crash', 'productcatalogservice'), ('service_crash', 'recommendationservice'), ('service_crash', 'redis-cart'), ('service_crash', 'shippingservice')]
+[00:06:19] === phase 0: stability batch (10 incidents) ===
+[00:06:20] s001 [stability] deploy_misconfig @ productcatalogservice act=scale_replicas tau=90s
+[00:10:30]   CENSORED (no recovery within 150s)
+[00:10:30]   dur 240.6s blast=2 prop={'recommendationservice': 549} [CENSORED]
+[00:11:53] s002 [stability] resource_exhaustion @ recommendationservice act=scale_replicas tau=15s
+[00:14:52]   CENSORED (no recovery within 150s)
+[00:14:53]   dur 165.4s blast=1 prop={} [CENSORED]
+[00:15:21] s003 [stability] deploy_misconfig @ shippingservice act=scale_replicas tau=90s
+[00:19:32]   CENSORED (no recovery within 150s)
+[00:19:32]   dur 240.6s blast=2 prop={'checkoutservice': 466} [CENSORED]
+[00:21:17] s004 [stability] deploy_misconfig @ productcatalogservice act=pod_restart tau=45s
+[00:24:41]   CENSORED (no recovery within 150s)
+[00:24:42]   dur 195.4s blast=2 prop={'recommendationservice': 445} [CENSORED]
+[00:26:47] s005 [stability] deploy_misconfig @ recommendationservice act=scale_replicas tau=45s
+[00:30:17]   CENSORED (no recovery within 150s)
+[00:30:17]   dur 195.5s blast=1 prop={} [CENSORED]
+[00:30:47] s006 [stability] service_crash @ redis-cart act=rollback_deploy tau=15s
+[00:33:41]   CENSORED (no recovery within 150s)
+[00:33:41]   dur 165.5s blast=3 prop={'cartservice': 6049, 'checkoutservice': 8054} [CENSORED]
+[00:33:56] s007 [stability] deploy_misconfig @ productcatalogservice act=rollback_deploy tau=90s
+[00:36:26]   dur 131.7s blast=2 prop={'recommendationservice': 855}
+[00:36:38] s008 [stability] service_crash @ shippingservice act=scale_replicas tau=15s
+[00:37:21]   dur 25.5s blast=2 prop={'checkoutservice': 598}
+[00:37:34] s009 [stability] service_crash @ cartservice act=scale_replicas tau=90s
+[00:40:52]   dur 181.0s blast=2 prop={'checkoutservice': 774}
+[00:41:05] s010 [stability] service_crash @ recommendationservice act=rollback_deploy tau=15s
+[00:44:05]   CENSORED (no recovery within 150s)
+[00:44:05]   dur 165.4s blast=1 prop={} [CENSORED]
+[00:45:23] stability: {'n': 10, 'ok': 3, 'container_restarts_delta': 0, 'feed_reconnects': 1, 'resets_ok': 10, 'mean_cycle_s': 233.64000000000001, 'mean_probe_events': 14058.6, 'pass': False}
+[00:45:23] STABILITY GATE FAILED -- stopping before the campaign

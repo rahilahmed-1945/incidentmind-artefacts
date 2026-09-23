@@ -1,0 +1,88 @@
+{
+  "recorded_before_analysis": true,
+  "admitted_cells": [
+    [
+      "deploy_misconfig",
+      "currencyservice"
+    ],
+    [
+      "deploy_misconfig",
+      "productcatalogservice"
+    ],
+    [
+      "deploy_misconfig",
+      "recommendationservice"
+    ],
+    [
+      "deploy_misconfig",
+      "shippingservice"
+    ],
+    [
+      "resource_exhaustion",
+      "currencyservice"
+    ],
+    [
+      "resource_exhaustion",
+      "recommendationservice"
+    ],
+    [
+      "service_crash",
+      "cartservice"
+    ],
+    [
+      "service_crash",
+      "currencyservice"
+    ],
+    [
+      "service_crash",
+      "productcatalogservice"
+    ],
+    [
+      "service_crash",
+      "recommendationservice"
+    ],
+    [
+      "service_crash",
+      "redis-cart"
+    ],
+    [
+      "service_crash",
+      "shippingservice"
+    ]
+  ],
+  "n_admitted": 12,
+  "rejected_cells": [
+    [
+      "deploy_misconfig",
+      "redis-cart",
+      "self_healed"
+    ],
+    [
+      "resource_exhaustion",
+      "shippingservice",
+      "self_healed"
+    ],
+    [
+      "deploy_misconfig",
+      "cartservice",
+      "excluded_prior_pilot"
+    ],
+    [
+      "resource_exhaustion",
+      "productcatalogservice",
+      "excluded_prior_pilot"
+    ]
+  ],
+  "unmeasured_cells": [
+    [
+      "resource_exhaustion",
+      "cartservice"
+    ],
+    [
+      "resource_exhaustion",
+      "redis-cart"
+    ]
+  ],
+  "deviation_from_preregistered_grid": "The candidate grid was 3 faults x 6 services = 18 cells. 12 were admitted. 4 were rejected by persistence controls (2 in this campaign: deploy_misconfig@redis-cart, resource_exhaustion@shippingservice; 2 carried over from earlier pilots and not retried: deploy_misconfig@cartservice, resource_exhaustion@productcatalogservice). 2 cells (resource_exhaustion@cartservice, resource_exhaustion@redis-cart) could not be measured: a duplicate orchestrator process was launched in error at 23:51:13 and injected a fault before being killed, so the cluster was not steady; the orchestrator refused to measure them and recorded no_steady_pre rather than producing data. Those aborts are quarantined in v1_infra_anomalies.jsonl. Corpus/heldout targets are unchanged at 150/90.",
+  "note_on_action_validity": "rollback_deploy applied to service_crash is a no-op (replicas is not part of the pod template), so those runs are expected to censor. They are retained as genuine ineffective-action observations, not removed."
+}

@@ -1,0 +1,42 @@
+[18:40:47] waiting for prober stream ...
+[18:40:47] i01  service_crash @ productcatalogservice  action=pod_restart  tau=15s
+[18:41:03]   onset +7.2s after injection
+[18:41:32]   duration 20.2s  blast=2  affected=frontend,productcatalogservice
+[18:41:44]   cycle 57s
+[18:41:44] i02  service_crash @ cartservice  action=scale_replicas  tau=30s
+[18:41:55]   onset +0.8s after injection
+[18:43:09]   duration 65.8s  blast=2  affected=cartservice,frontend
+[18:43:21]   cycle 97s
+[18:43:21] i03  service_crash @ currencyservice  action=pod_restart  tau=45s
+[18:43:37]   onset +6.2s after injection
+[18:44:52]   duration 66.8s  blast=2  affected=currencyservice,frontend
+[18:45:04]   cycle 103s
+[18:45:04] i04  deploy_misconfig @ productcatalogservice  action=rollback_deploy  tau=15s
+[18:45:14]   onset +0.9s after injection
+[18:45:50]   duration 27.1s  blast=2  affected=frontend,productcatalogservice
+[18:46:02]   cycle 58s
+[18:46:02] i05  deploy_misconfig @ currencyservice  action=rollback_deploy  tau=45s
+[18:46:17]   onset +5.8s after injection
+[18:47:34]   duration 68.3s  blast=2  affected=currencyservice,frontend
+[18:47:46]   cycle 104s
+[18:47:46] i06  deploy_misconfig @ cartservice  action=pod_restart  tau=30s
+[18:47:56]   onset +0.7s after injection
+[18:49:18]   duration 72.9s  blast=2  affected=cartservice,frontend
+[18:49:30]   cycle 104s
+[18:49:30] i07  resource_exhaustion @ productcatalogservice  action=rollback_deploy  tau=20s
+[18:49:40]   onset +0.7s after injection
+[18:50:29]   duration 41.5s  blast=2  affected=frontend,productcatalogservice
+[18:50:41]   cycle 72s
+[18:50:41] i08  resource_exhaustion @ recommendationservice  action=rollback_deploy  tau=40s
+[18:50:57]   onset +5.8s after injection
+[18:51:58]   duration 53.0s  blast=1  affected=recommendationservice
+[18:52:10]   cycle 89s
+[18:52:10] i09  service_crash @ paymentservice  action=pod_restart  tau=25s
+[18:52:25]   onset +5.8s after injection
+[18:53:11]   duration 37.0s  blast=1  affected=paymentservice
+[18:53:23]   cycle 73s
+[18:53:23] i10  deploy_misconfig @ shippingservice  action=rollback_deploy  tau=20s
+[18:53:37]   onset +3.9s after injection
+[18:54:11]   duration 26.1s  blast=2  affected=frontend,shippingservice
+[18:54:23]   cycle 60s
+[18:54:23] V0 complete in 14 min

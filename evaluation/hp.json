@@ -1,0 +1,1 @@
+{"k": 12, "m_min": 5, "m_relax": 1, "tier_penalty": 0.05, "temp": 0.18, "w_fault": 0.45, "w_struct": 0.35, "w_origin": 0.2, "beta": 0.3, "lam_blend": 0.75, "theta": 0.3, "clag": 1.6, "clag_scale": 1.0, "lam": 1.1, "k0": 6.0, "z": 2.5, "conflict_sep": 4.5, "use_law": true, "use_dep": true, "use_tiers": true, "robust": true}

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: im-prober-v1a
+  labels: {app: im-prober-v1a}
+spec:
+  restartPolicy: Always
+  containers:
+    - name: prober
+      image: im-prober:v1a
+      imagePullPolicy: Never
+      env:
+        - {name: TCP_HZ,  value: "10"}
+        - {name: FUNC_HZ, value: "5"}
+        - {name: DEP_HZ,  value: "2"}
+        - {name: HTTP_HZ, value: "2"}
+      resources:
+        requests: {cpu: "300m", memory: "128Mi"}
+        limits:   {cpu: "2000m", memory: "512Mi"}

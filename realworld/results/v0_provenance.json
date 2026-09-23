@@ -1,0 +1,60 @@
+{
+  "benchmark": "Online Boutique (GoogleCloudPlatform/microservices-demo)",
+  "benchmark_version": "v0.10.6",
+  "manifest_sha256": "41a4736597543ee562c673c0c0446e2cc4bddf2b816c294690e83b38cfcc66a2",
+  "loadgenerator": "removed; load driven by the prober only",
+  "cluster": {
+    "tool": "kind v0.33.0-alpha+2947cc25da5362",
+    "name": "incidentmind-fi",
+    "node_image": "kindest/node:v1.36.1",
+    "kubelet": "v1.36.1",
+    "nodes": 1,
+    "capacity": {
+      "cpu": "16",
+      "memory": "7778380Ki",
+      "pods": "110"
+    },
+    "runtime": "containerd://2.3.1",
+    "host": "Windows 11 + WSL2, Ryzen 7, 15.3 GB RAM",
+    "docker": "Docker Desktop 29.4.2, VM 16 CPU / 7.96 GB"
+  },
+  "observed_usage": {
+    "kind_node_cpu_pct": 39.03,
+    "kind_node_mem": "1.5GiB / 7.418GiB (20.2%)",
+    "container_restarts_during_v0": 0
+  },
+  "prober": {
+    "period_s": 1.0,
+    "tcp_timeout_ms": 500,
+    "http_timeout_s": 3.0,
+    "targets": 11,
+    "http_routes": [
+      "/",
+      "/product/OLJCESPC7Z",
+      "/cart"
+    ]
+  },
+  "incidentmind_commit_estimator_frozen": "7d0ff7bd2186871d61abf1ccb8154402bc60a9ae",
+  "incidentmind_commit_at_v0": "b37441d21481e5393622f309982df32b982f346c",
+  "v0": {
+    "planned": 10,
+    "completed": 10,
+    "censored": 0,
+    "aborted": 0,
+    "invalid_after_control": [
+      "i06"
+    ],
+    "fault_types": [
+      "service_crash",
+      "deploy_misconfig",
+      "resource_exhaustion"
+    ],
+    "actions": [
+      "pod_restart",
+      "scale_replicas",
+      "rollback_deploy"
+    ],
+    "mean_cycle_s": 81.6,
+    "wall_clock_min": 14
+  }
+}

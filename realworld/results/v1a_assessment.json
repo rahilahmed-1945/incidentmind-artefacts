@@ -1,0 +1,104 @@
+{
+  "controls": {
+    "total": 8,
+    "persistent": 7,
+    "self_healed": [
+      [
+        "resource_exhaustion",
+        "productcatalogservice"
+      ]
+    ],
+    "validity_rate": 0.875
+  },
+  "propagation": {
+    "edges": 12,
+    "ms": [
+      416,
+      517,
+      531,
+      813,
+      900,
+      4111,
+      4176,
+      4206,
+      4281,
+      5637,
+      6605,
+      7645
+    ],
+    "median_ms": 4143.5,
+    "nonzero_frac": 1.0,
+    "by_edge": {
+      "productcatalogservice->recommendationservice": [
+        813,
+        4111,
+        416
+      ],
+      "currencyservice->checkoutservice": [
+        4206,
+        531
+      ],
+      "cartservice->checkoutservice": [
+        517
+      ],
+      "redis-cart->cartservice": [
+        5637
+      ],
+      "redis-cart->checkoutservice": [
+        7645
+      ],
+      "shippingservice->checkoutservice": [
+        4281,
+        4176
+      ],
+      "paymentservice->checkoutservice": [
+        900
+      ],
+      "currencyservice->productcatalogservice": [
+        6605
+      ]
+    }
+  },
+  "blast": {
+    "values": [
+      2,
+      2,
+      2,
+      3,
+      2,
+      2,
+      2,
+      2,
+      3,
+      2,
+      1,
+      1,
+      1,
+      1
+    ],
+    "mean": 1.8571428571428572,
+    "frac_gt1": 0.7142857142857143
+  },
+  "detection_ms": {
+    "median": 972.0,
+    "min": 455,
+    "max": 5944
+  },
+  "duration_s": {
+    "median": 42.655,
+    "min": 21.53,
+    "max": 71.27
+  },
+  "cycle_s": {
+    "mean": 76.37142857142857
+  },
+  "dependency_only_incidents": 10,
+  "gate": {
+    "propagation_nonzero": true,
+    "blast_beyond_origin": true,
+    "dependency_distinguishable": true,
+    "stable_recovery": true,
+    "fault_persistence": true,
+    "all_pass": true
+  }
+}

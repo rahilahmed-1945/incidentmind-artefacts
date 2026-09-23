@@ -1,0 +1,21 @@
+IncidentMind — evaluation artefacts
+Copyright (c) 2026 Rahil Ahmed, Sogra Sana, P. Sowjanya
+
+This product includes software developed by Google LLC and distributed under the
+Apache License, Version 2.0:
+
+  * realworld/manifests/online-boutique-v0.10.6.yaml
+      Kubernetes manifests of the Online Boutique (microservices-demo)
+      benchmark, release v0.10.6.
+      Copyright 2025 Google LLC.
+
+  * realworld/prober/protos/demo.proto
+      Protocol-buffer service definitions of the same benchmark.
+      Copyright 2020 Google LLC.
+
+Both files are redistributed verbatim with their original licence headers
+intact. A copy of the Apache License, Version 2.0 is available at:
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+See THIRD_PARTY.md for the complete third-party inventory.
