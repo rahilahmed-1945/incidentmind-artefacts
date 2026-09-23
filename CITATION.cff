@@ -1,24 +1,27 @@
 cff-version: 1.2.0
-message: "If you use these artefacts, please cite the journal article; if you use the artefacts themselves, please also cite the archived release."
+message: "If you use these artefacts, please cite the associated article; if you use the artefacts themselves, please also cite the archived release."
+
 title: "IncidentMind — evaluation artefacts"
+
 abstract: >-
   Code, data and results reproducing every table, figure and quantitative claim in
   "Precedent-Grounded Counterfactual Estimation of Recovery Decision Outcomes in
   Cloud-Native Systems": a frozen generative testbed supplying counterfactual
   ground truth, a reference estimator with seven executed baselines, never-inspected
   split audits, and a Kubernetes fault-injection campaign.
+
 type: software
+
 authors:
-  - family-names: Ahmed
-    given-names: Rahil
+  - name: "Rahil Ahmed"
     affiliation: "Dept. of Computer Science Engineering, Malla Reddy College of Engineering and Technology, Hyderabad, Telangana, India"
-  - family-names: Sana
-    given-names: Sogra
+  - name: "Sogra Sana"
     affiliation: "Computer Applications, LMA Degree College, Banjara Hills, Hyderabad, Telangana, India"
-  - family-names: Sowjanya
-    given-names: P.
+  - name: "P. Sowjanya"
     affiliation: "Dept. of Computer Science Engineering (Cybersecurity), Sreenidhi Institute of Science and Technology, Hyderabad, Telangana, India"
+
 license: MIT
+
 keywords:
   - incident management
   - counterfactual evaluation
@@ -26,16 +29,12 @@ keywords:
   - AIOps
   - cloud-native systems
   - reproducibility
+
 preferred-citation:
   type: article
   title: "Precedent-Grounded Counterfactual Estimation of Recovery Decision Outcomes in Cloud-Native Systems"
   authors:
-    - family-names: Ahmed
-      given-names: Rahil
-    - family-names: Sana
-      given-names: Sogra
-    - family-names: Sowjanya
-      given-names: P.
-  journal: "SN Computer Science"
+    - name: "Rahil Ahmed"
+    - name: "Sogra Sana"
+    - name: "P. Sowjanya"
   year: 2026
-  # notes: add volume, pages and doi once the article is published
