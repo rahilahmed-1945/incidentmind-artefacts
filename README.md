@@ -3,14 +3,16 @@
 Code, data and results for the article
 
 > **Precedent-Grounded Counterfactual Estimation of Recovery Decision Outcomes in Cloud-Native Systems**
-> Rahil Ahmed, Sogra Sana, P. Sowjanya — submitted to *SN Computer Science* (Springer Nature).
+> Rahil Ahmed, Sogra Sana, P. Sowjanya.
 
-This repository contains everything needed to reproduce every table, figure and
-quantitative claim in the article. The article itself is not redistributed here;
+This repository contains the research artefacts accompanying the article and
+provides everything needed to reproduce every table, figure, and quantitative
+claim reported in the work. The article itself is not redistributed here;
 see [Citation](#citation).
 
 An earlier, narrower version of this work was accepted for presentation at
-**ICCMM 2026** (IEEE). The artefacts here are those of the journal article.
+**ICCMM 2026** (IEEE). This repository contains the artefacts for the expanded
+research work.
 
 ---
 
